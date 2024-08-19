@@ -1,32 +1,39 @@
 package com.smercau.bizCatering.persistence.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.text.DecimalFormat;
+
 @Entity
-@Table(name="producto")
+@Table(name="productoEntity")
+@Getter
+@Setter
+@NoArgsConstructor
 public class ProductoEntity {
 
-    @Getter @Setter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_producto", nullable = false)
     private long idProducto;
 
-    @Getter @Setter
+    @Column(name = "codbar",length = 30)
     private long codbar;
 
-    @Getter @Setter
+    @Column(name = "nombreProducto",length = 60)
     private String nombreProducto;
 
-    @Getter @Setter
+    @Column(name = "descripcionProducto",length = 200)
     private String descripcionProducto;
 
-    @Getter @Setter
+    @Column(name = "categoriaProducto",length = 80)
     private String categoriaProducto;
 
-    @Getter @Setter
+    @Column(name = "precioCosto",nullable = false,columnDefinition = "Decimal(5,2)")
     private double precioCosto;
 
-    @Getter @Setter
+    @Column(name = "precioVenta",nullable = false, columnDefinition = "Decimal(5,2)")
     private double precioVenta;
 }

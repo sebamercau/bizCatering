@@ -1,34 +1,35 @@
 package com.smercau.bizCatering.persistence.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
 @Entity
-@Table(name = "empleado")
+@Table(name = "empleadoEntity")
+@Getter
+@Setter
 public class EmpleadoEntity {
 
-    @Getter @Setter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_empleado", nullable = false)
     private long idEmpleado;
 
-    @Getter @Setter
+    @Column(name = "legajo", nullable = false)
     private long legajo;
 
-    @Getter @Setter
+    @Column(name = "tarjeta_magnetica")
     private long tarjetaMagnetica;
 
-    @Getter @Setter
+    @Column(name = "nombre", nullable = false,length = 30)
     private String nombre;
 
-    @Getter @Setter
+    @Column(name = "apellido", nullable = false,length = 50)
     private String apellido;
 
-    @Getter @Setter
+    @Column(name = "dni",length = 8)
     private int dni;
-
-
-
 
 }

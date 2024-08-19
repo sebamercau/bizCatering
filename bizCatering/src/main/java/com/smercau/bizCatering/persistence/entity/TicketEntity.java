@@ -1,28 +1,35 @@
 package com.smercau.bizCatering.persistence.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name="ticket")
+@Table(name="ticketEntity")
+@Getter
+@Setter
+@NoArgsConstructor
 public class TicketEntity {
 
-    @Getter @Setter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_ticket", nullable = false)
     private long idTicket;
 
-    @Getter @Setter
-    private Date fechaTicket;
+    @Column(name = "fecha_ticket", nullable = false, columnDefinition = "DATETIME")
+    private LocalDateTime fechaTicket;
 
-    @Getter @Setter
+    @Column(name = "id_empleado", nullable = false)
     private EmpleadoEntity empleadoEntity;
 
-    @Getter @Setter
-    private List<ProductoEntity> listadoProductos;
+
+    //@Column (name = "productos")
+    //private List<ProductoEntity> listadoProductos;
 
 }
