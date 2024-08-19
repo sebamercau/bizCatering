@@ -1,9 +1,13 @@
 package com.smercau.bizCatering.persistence.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Producto {
+@Entity
+@Table(name="producto")
+public class ProductoEntity {
 
     @Getter @Setter
     private long idProducto;
